@@ -5,7 +5,7 @@ Für den ESP32 Code bitte diesem Link folgen: Link
 Für die Anomalien Detektion diesem Link folgen: Link
 
 ## Architektur 
-
+![](src/main/java/doc/pictures/UML-Klasse.png)
 
 ## Technologien
 
