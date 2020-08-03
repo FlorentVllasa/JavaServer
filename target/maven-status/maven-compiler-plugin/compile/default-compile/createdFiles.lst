@@ -1,0 +1,13 @@
+datacollection\MQTTCollector.class
+mqtt\MQTTSubscribe.class
+interfaces\DataCollector.class
+datacollection\ServerCollector.class
+mqtt\Server.class
+utils\JsonParser.class
+model\VectorAcc.class
+database\InfluxClient.class
+Start.class
+model\VectorCamera.class
+model\VectorGyro.class
+utils\DataFilter.class
+model\VectorMerged.class
