@@ -73,11 +73,6 @@ public class ESP32Collector implements SensorDataCollector {
                 VectorGyro vectorGyro = dataFilter.vectorCompileGyro(str);
                 VectorAcc vectorAcc = dataFilter.vectorCompileAcc(str);
                 VectorMerged vectorMerged = new VectorMerged(vectorGyro, vectorAcc, vectorCamera);
-                System.out.println("gX: " + vectorMerged.getgX() + " gY: " + vectorMerged.getgY()
-                        + " gZ: " + vectorMerged.getgZ() + "Stamp: " + vectorMerged.getSensorTime() +
-                        " | " + "aX: " + vectorMerged.getaX() + " aY: " + vectorMerged.getaY()
-                        + " aZ: " + vectorMerged.getaZ() + " | " + " camX: " + vectorCamera.getCamX() +
-                        " camY: " + vectorCamera.getCamY() + " camZ: " + vectorCamera.getCamZ());
                 vectorMergedList.add(vectorMerged);
 
                 connectionSocket.close();
@@ -134,3 +129,9 @@ public class ESP32Collector implements SensorDataCollector {
     }
 
 }
+
+//System.out.println("gX: " + vectorMerged.getgX() + " gY: " + vectorMerged.getgY()
+//        + " gZ: " + vectorMerged.getgZ() + "Stamp: " + vectorMerged.getSensorTime() +
+//        " | " + "aX: " + vectorMerged.getaX() + " aY: " + vectorMerged.getaY()
+//        + " aZ: " + vectorMerged.getaZ() + " | " + " camX: " + vectorCamera.getCamX() +
+//        " camY: " + vectorCamera.getCamY() + " camZ: " + vectorCamera.getCamZ());
