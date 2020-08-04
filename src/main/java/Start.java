@@ -1,7 +1,7 @@
 import database.InfluxClient;
 import datacollection.MQTTCollector;
 import datacollection.ESP32Collector;
-import interfaces.DataCollector;
+import interfaces.SensorDataCollector;
 import model.VectorMerged;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Start {
     public static void main(String[] args) throws MqttException, IOException {
-        DataCollector serverCollector = new ESP32Collector(8080, 250);
+        SensorDataCollector esp32Collector = new ESP32Collector(8080, 250);
         MQTTCollector mqttCollector = new MQTTCollector("tcp://192.168.29.106", "florent",
                                                         "hardware/visual-object-tracking/locations/None");
         InfluxClient influxClient = new InfluxClient("http://kil-pm.htwsaar.de:8086", "2020-pib-gyro",
@@ -19,7 +19,7 @@ public class Start {
         System.out.println("Subscribed to: " + mqttCollector.getTopicPath());
 
         System.out.println("Collecting data...");
-        List<VectorMerged> vectorMergedList = serverCollector.collectData();
+        List<VectorMerged> vectorMergedList = esp32Collector.collectData();
         System.out.println("Writing data to database...");
         for (int i = 0; i < vectorMergedList.size(); i++) {
             influxClient.writeDataVectorMerged(vectorMergedList.get(i));

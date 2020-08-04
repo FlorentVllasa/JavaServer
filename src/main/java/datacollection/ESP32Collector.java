@@ -1,6 +1,6 @@
 package datacollection;
 
-import interfaces.DataCollector;
+import interfaces.SensorDataCollector;
 import model.VectorCamera;
 import model.VectorMerged;
 import model.VectorAcc;
@@ -18,7 +18,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ESP32Collector implements DataCollector {
+public class ESP32Collector implements SensorDataCollector {
     private JsonParser jsonParser = new JsonParser();
     private DataFilter dataFilter = new DataFilter();
 
