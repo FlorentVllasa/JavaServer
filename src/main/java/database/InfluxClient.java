@@ -62,10 +62,8 @@ public class InfluxClient {
                     .time(vectorGyro.getTimeStamp(), WritePrecision.MS);
 
             pointList.add(point);
-            System.out.println("Point added!");
         }
         writeApi.writePoints(pointList);
-        System.out.println("Added Point List!");
         pointList.clear();
     }
 
@@ -84,10 +82,8 @@ public class InfluxClient {
                     .time(vectorAcc.getTimeStamp(), WritePrecision.MS);
 
             pointList.add(point);
-            System.out.println("Point added!");
         }
         writeApi.writePoints(pointList);
-        System.out.println("Added Point List!");
         pointList.clear();
     }
 
@@ -110,10 +106,8 @@ public class InfluxClient {
                     .time(gyroVector.getTimeStamp(), WritePrecision.MS);
 
             pointList.add(point);
-            System.out.println("Point added!");
         }
         writeApi.writePoints(pointList);
-        System.out.println("Added Point List!");
         pointList.clear();
     }
 
@@ -134,10 +128,8 @@ public class InfluxClient {
                     .time(vectorMerged.getSensorTime(), WritePrecision.MS);
 
             pointList.add(point);
-//            System.out.println("Point added!");
         }
         writeApi.writePoints(pointList);
-//        System.out.println("Added Point List!");
         pointList.clear();
     }
 
