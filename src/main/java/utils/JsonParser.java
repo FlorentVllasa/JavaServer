@@ -6,6 +6,11 @@ import org.json.JSONObject;
 
 public class JsonParser {
 
+    /**
+     * This method receives the MQTT-Message as a JSON and gets filtered
+     * @param json the MQTT-MEssage that already arrived
+     * @return
+     */
     public VectorCamera receiveDataAsCamVector(String json){
         JSONObject obj = new JSONObject(json);
         if(!obj.isNull("location")){
@@ -15,7 +20,6 @@ public class JsonParser {
             VectorCamera camVector = new VectorCamera(xValue, yValue,1.00f, tStamp);
             return camVector;
         }
-        System.out.println("Error");
         return null;
     }
 }

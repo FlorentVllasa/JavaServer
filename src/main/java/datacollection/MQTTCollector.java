@@ -33,6 +33,13 @@ public class MQTTCollector implements MqttCallback {
 
     }
 
+    /**
+     * As soon as you subscribe to a topic, the mqtt message arrives in this method
+     * where you can work with it. Also this message gets delivered to the ESP32Colelctor class.
+     * @param topic the topic that is being subscribed
+     * @param mqttMessage the mqtt messages that arrives in this method
+     * @throws Exception
+     */
     @Override
     public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
         camMessage = new String(mqttMessage.getPayload());

@@ -44,6 +44,12 @@ public class ESP32Collector implements SensorDataCollector {
 
     }
 
+    /**
+     * This Method annotates positiondata from the camerasystem with sensordata. This happens
+     * only if the platform moves outside the starting zone.
+     * @return List of VectorMerged Objects that were collected during the datacollection phase.
+     * @throws IOException
+     */
     @Override
     public List<VectorMerged> collectData() throws IOException {
         List<VectorMerged> vectorMergedList = new ArrayList<>();
@@ -86,6 +92,13 @@ public class ESP32Collector implements SensorDataCollector {
         return null;
     }
 
+
+    /**
+     * Fills the Buffer with the filtered content of the Inputstream
+     * @param byteBuffer
+     * @param bufferedInputStream
+     * @throws IOException
+     */
     public void fillBuffer(ByteBuffer byteBuffer, BufferedInputStream bufferedInputStream) throws IOException {
         while (true) {
             int b = bufferedInputStream.read();
@@ -96,8 +109,12 @@ public class ESP32Collector implements SensorDataCollector {
         }
     }
 
-    public static void setMQTTMessage(String str){
-        ESP32Collector.mqttMessage = str;
+    /**
+     * This Method receives the MQTT-Message arriving in the MQTT-Collector class.
+     * @param mqttMessage MQTT-Message that arrived in the MQTT-Collector class
+     */
+    public static void setMQTTMessage(String mqttMessage){
+        ESP32Collector.mqttMessage = mqttMessage;
     }
 
     public static String getMqttMessage() {

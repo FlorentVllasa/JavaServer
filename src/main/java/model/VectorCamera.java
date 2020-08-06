@@ -13,18 +13,6 @@ public class VectorCamera {
         this.timeStamp = timeStamp;
     }
 
-    public void determinePlatformStart(VectorCamera vectorCamera){
-        double camY = vectorCamera.getCamY();
-        while(camY >= 1.33){
-            System.out.println("Platform not moving!");
-        }
-        System.out.println("Platform started!");
-    }
-
-    public void determinePlatformEnd(VectorCamera vectorCamera){
-
-    }
-
     public float getCamX() {
         return camX;
     }

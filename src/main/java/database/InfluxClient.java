@@ -134,28 +134,9 @@ public class InfluxClient {
     }
 
     /**
-     * Method to close the InfluxDB Connection.
+     * This Method closes the DB connection
      */
     public void closeConnection(){
         influxDBClient.close();
     }
-
-    /**
-     * Method to retrive the data from the bucket, this works on InfluxDB
-     * Version 2.0 and retrieves all Data.
-     */
-    public void retrieveData(){
-        String flux = "from(bucket:\"test3\") |> range(start: 0)";
-
-        QueryApi queryApi = influxDBClient.getQueryApi();
-
-        List<FluxTable> tables = queryApi.query(flux);
-        for (FluxTable fluxTable : tables) {
-            List<FluxRecord> records = fluxTable.getRecords();
-            for (FluxRecord fluxRecord : records) {
-                System.out.println(fluxRecord.getTime() + ": " + fluxRecord.getValueByKey("_value"));
-            }
-        }
-    }
-
 }
